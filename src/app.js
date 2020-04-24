@@ -27,6 +27,7 @@ app.use(function (req, res, next) {
   res.status(404);
   if (req.accepts('json')) {
     res.send({ status: '404', error: 'Not found', });
+    return;
   }
   next();
 });

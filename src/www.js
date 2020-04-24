@@ -24,7 +24,7 @@ const normalizePort = (val) => {
   return false;
 };
 
-const port = normalizePort(constants.PORT || '4000');
+const port = normalizePort(constants.PORT);
 
 app.set('port', port);
 
