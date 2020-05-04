@@ -59,6 +59,9 @@ const generateMinus = (minuend, subtrahend, borrowing) => {
 
   a = a.map((_, index) => {
     if (index === minuend - 1) {
+      if (borrowing) {
+        return util.getRandomInteger(2, 10);
+      }
       return util.getRandomInteger(1, 10);
     }
     if (borrowing) {
@@ -112,7 +115,7 @@ const generateOptions = (correctAnswer) => {
       const pos = util.getRandomInteger(0, correctAnswerLength);
       const addOrSub = util.getRandomInteger(0, 2);
       const difference = util.getRandomInteger(0, 10);
-      option =  Math.abs(correctAnswer + (addOrSub*pos*10*difference));
+      option =  Math.abs(correctAnswer + (addOrSub*Math.pow(10,pos)*difference));
       }while(hashmap[option])
       hashmap[option] = 1;
       return option;
